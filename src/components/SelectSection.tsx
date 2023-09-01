@@ -6,9 +6,13 @@ import lizard from "../assets/icon-lizard.svg"
 import spock from "../assets/icon-spock.svg"
 import Image from "next/image"
 
-export default function SelectSection() {
+interface SelectProps {
+    showRules: boolean
+}
+
+export default function SelectSection({ showRules }: SelectProps) {
     return(
-        <section className="bg-no-repeat bg-center flex flex-col items-center" 
+        <section className={`bg-no-repeat bg-center flex flex-col items-center ${showRules && "opacity-25"}`}
             style={{
                 backgroundImage: `url(${pentagon.src})`,
                 width: '40%',
@@ -44,7 +48,7 @@ export default function SelectSection() {
             </div>
 
             <div className="flex gap-14 mt-6">
-                <button className="p-6 rounded-full bg-[var(--light-font)] hover:scale-105"
+                <button className={`p-6 rounded-full bg-[var(--light-font)] hover:scale-105 ${showRules && "disabled hover:scale-100 cursor-auto"}`}
                     style={{
                         border: "13px solid var(--lizard1)",
                         boxShadow: "inset 0 4px 0 1px rgb(0 0 0 / 0.3), 0 4px 0 1px var(--lizard2)"
@@ -52,7 +56,7 @@ export default function SelectSection() {
                 >
                     <Image src={lizard} alt="lizard" width={40} />
                 </button>
-                <button className="p-6 rounded-full bg-[var(--light-font)] hover:scale-105"
+                <button className={`p-6 rounded-full bg-[var(--light-font)] hover:scale-105 ${showRules && "disabled hover:scale-100 cursor-auto"}`}
                     style={{
                         border: "13px solid var(--rock1)",
                         boxShadow: "inset 0 4px 0 1px rgb(0 0 0 / 0.3), 0 4px 0 1px var(--rock2)"
