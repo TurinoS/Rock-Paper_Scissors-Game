@@ -11,14 +11,14 @@
   --border-color: #536269;
   --scissors1: #FF8100;
   --scissors2: #a55204;
-  --paper1: #00FF7D;
-  --paper2: #04b175;
-  --rock1: #993AFF;
-  --rock2: #7029b2;
-  --lizard1: #36FFB0;
-  --lizard2: #20b074;
-  --spock1: #0099E6;
-  --spock2: #044e80;
+  --spock1: #00FF7D;
+  --spock2: #04b175;
+  --lizard1: #993AFF;
+  --lizard2: #7029b2;
+  --rock1: #ff3a3a;
+  --rock2: #b22929;
+  --paper1: #0099E6;
+  --paper2: #044e80;
 }
 
 body {
