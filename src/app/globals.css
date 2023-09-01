@@ -10,15 +10,15 @@
   --blue-font: #1757d6;
   --border-color: #536269;
   --scissors1: #FF8100;
-  --scissors2: #FF7D00;
+  --scissors2: #a55204;
   --paper1: #00FF7D;
-  --paper2: #00FFA6;
+  --paper2: #04b175;
   --rock1: #993AFF;
-  --rock2: #9D36FF;
+  --rock2: #7029b2;
   --lizard1: #36FFB0;
-  --lizard2: #2DFFA9;
+  --lizard2: #20b074;
   --spock1: #0099E6;
-  --spock2: #008BE6;
+  --spock2: #044e80;
 }
 
 body {
