@@ -1,4 +1,4 @@
-
+'use client'
 
 import Header from "@/components/Header";
 import ResponseSection from "@/components/ResponseSection";
@@ -9,20 +9,19 @@ import { useState } from "react";
 export default function Home() {
   const [showRules, setShowRules] = useState(false)
   const [houseChoice, setHouseChoice] = useState(0)
-  const [userPicker, setUserPicker] = useState("")
+  const [userPicker, setUserPicker] = useState(0)
 
   const housePicker = () => {
     setHouseChoice(Math.floor(Math.random() * 5) + 1);
-    console.log(userPicker, houseChoice)
   }
 
   return (
     <main className="flex h-screen flex-col items-center gap-16 p-8">
       <Header showRules={showRules} />
-      {userPicker === "" ?
+      {userPicker === 0 ?
         <SelectSection houseChoice={housePicker} UserPicker={setUserPicker}/>
       :
-        <ResponseSection />
+        <ResponseSection userPick={userPicker} housePick={houseChoice} />
       }
       
       {showRules && <RulesModal handleOnClick={() => setShowRules(false)} />}

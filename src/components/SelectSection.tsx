@@ -8,7 +8,7 @@ import Image from "next/image"
 
 interface SelectProps {
     houseChoice: () => void
-    UserPicker: (choice: string) => void
+    UserPicker: (choice: number) => void
 }
 
 export default function SelectSection({ houseChoice, UserPicker }: SelectProps) {
@@ -26,7 +26,7 @@ export default function SelectSection({ houseChoice, UserPicker }: SelectProps) 
                     border: "13px solid var(--scissors1)",
                     boxShadow: "inset 0 4px 0 1px rgb(0 0 0 / 0.3), 0 4px 0 1px var(--scissors2)"
                 }}
-                onClick={() => {houseChoice(); UserPicker("scissors")}} 
+                onClick={() => {houseChoice(); UserPicker(1)}} 
             >
                 <Image src={scissors} alt="scissors" width={40} />
             </button>
@@ -38,7 +38,7 @@ export default function SelectSection({ houseChoice, UserPicker }: SelectProps) 
                         border: "13px solid var(--spock1)",
                         boxShadow: "inset 0 4px 0 1px rgb(0 0 0 / 0.3), 0 4px 0 1px var(--spock2)"
                     }}
-                    onClick={() => {houseChoice(); UserPicker("spock")}} 
+                    onClick={() => {houseChoice(); UserPicker(5)}} 
                 >
                     <Image src={spock} alt="spock" width={40} />
                 </button>
@@ -48,7 +48,7 @@ export default function SelectSection({ houseChoice, UserPicker }: SelectProps) 
                         border: "13px solid var(--paper1)",
                         boxShadow: "inset 0 4px 0 1px rgb(0 0 0 / 0.3), 0 4px 0 1px var(--paper2)"
                     }}
-                    onClick={() => {houseChoice(); UserPicker("paper")}} 
+                    onClick={() => {houseChoice(); UserPicker(2)}} 
                 >
                     <Image src={paper} alt="paper" width={40} />
                 </button>
@@ -61,7 +61,7 @@ export default function SelectSection({ houseChoice, UserPicker }: SelectProps) 
                         border: "13px solid var(--lizard1)",
                         boxShadow: "inset 0 4px 0 1px rgb(0 0 0 / 0.3), 0 4px 0 1px var(--lizard2)"
                     }}
-                    onClick={() => {houseChoice(); UserPicker("lizard")}} 
+                    onClick={() => {houseChoice(); UserPicker(4)}} 
                 >
                     <Image src={lizard} alt="lizard" width={40} />
                 </button>
@@ -71,7 +71,7 @@ export default function SelectSection({ houseChoice, UserPicker }: SelectProps) 
                         border: "13px solid var(--rock1)",
                         boxShadow: "inset 0 4px 0 1px rgb(0 0 0 / 0.3), 0 4px 0 1px var(--rock2)"
                     }}
-                    onClick={() => {houseChoice(); UserPicker("rock")}} 
+                    onClick={() => {houseChoice(); UserPicker(3)}} 
                 >
                     <Image src={rock} alt="rock" width={40} />
                 </button>
