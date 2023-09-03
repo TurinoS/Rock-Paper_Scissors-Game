@@ -42,6 +42,7 @@ export default function Home() {
   };
 
   useEffect(() => {
+    const storedPoints = window.localStorage.getItem('pontos');
     if (
       (userPicker === 1 && houseChoice === 2) ||
       (userPicker === 2 && houseChoice === 3) ||
@@ -78,7 +79,7 @@ export default function Home() {
       }, 1200)
 
     } else { setWLD("draw") }
-    window.localStorage.setItem('pontos', points)
+    points ? window.localStorage.setItem('pontos', points) : window.localStorage.setItem('pontos', "0")
   }, [houseChoice, userPicker])
 
   return (
