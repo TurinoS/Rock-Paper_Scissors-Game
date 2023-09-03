@@ -2,7 +2,7 @@ import { Barlow_Semi_Condensed } from "next/font/google";
 
 interface HeaderProps {
     showRules: boolean
-    points: number
+    points: string | null
 }
 
 const barlow = Barlow_Semi_Condensed({ 
@@ -12,7 +12,7 @@ const barlow = Barlow_Semi_Condensed({
 
 export default function Header({ showRules, points }: HeaderProps) {
     return(
-        <header className={`border-2 rounded-xl border-[var(--border-color)] w-3/6 py-3 pl-4 pr-3 flex justify-between items-center ${showRules && "opacity-25"}`}>
+        <header className={`border-2 rounded-xl border-[var(--border-color)] w-11/12 md:w-3/6 py-3 pl-4 pr-3 flex justify-between items-center ${showRules && "opacity-25"}`}>
             <div className="flex flex-col leading-4 text-xl">
                 <p className="text-[var(--light-font)] uppercase">Rock</p>
                 <p className="text-[var(--light-font)] uppercase">Paper</p>

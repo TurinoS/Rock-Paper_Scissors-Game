@@ -14,7 +14,7 @@ export default function Home() {
   const [secondtStep, setSecondStep] = useState(false)
   const [thirdStep, setThirdStep] = useState(false)
   const [wld, setWLD] = useState("draw");
-  const [points, setPoints] = useState(0);
+  const [points, setPoints] = useState(window.localStorage.getItem('pontos'));
 
   const housePicker = () => {
     setHouseChoice(Math.floor(Math.random() * 5) + 1);
@@ -57,7 +57,7 @@ export default function Home() {
     ) {
       setWLD("win");
       setTimeout(() => {
-        setPoints(points + 1)
+        setPoints((Number(points) + 1).toString())
       }, 1200)
 
     } else if (
@@ -74,15 +74,16 @@ export default function Home() {
     ) {
       setWLD("lose");
       setTimeout(() => {
-        setPoints(points - 1)
+        setPoints((Number(points) - 1).toString())
       }, 1200)
 
     } else { setWLD("draw") }
+    window.localStorage.setItem('pontos', points)
   }, [houseChoice, userPicker])
 
   return (
-    <main className="flex h-screen flex-col items-center gap-16 p-8">
-      <Header showRules={showRules} points={points} />
+    <main className="flex min-h-screen md:h-screen flex-col items-center gap-16 p-8">
+      <Header showRules={showRules} points={window.localStorage.getItem('pontos') != "null" ? window.localStorage.getItem('pontos') : "0"} />
       {userPicker === 0 ?
         <SelectSection userSelect={userSelect}/>
       :
@@ -92,7 +93,7 @@ export default function Home() {
       {showRules && <RulesModal handleOnClick={() => setShowRules(false)} />}
       
       <button 
-        className="border-2 border-[var(--border-color)] text-[var(--border-color)] absolute z-2 bottom-12 right-12 py-2 px-8 rounded-lg tracking-widest hover:text-[var(--light-font)] hover:border-[var(--light-font)]"
+        className="border-2 border-[var(--border-color)] text-[var(--border-color)] md:absolute md:z-2 md:bottom-12 md:right-12 py-2 px-8 rounded-lg tracking-widest hover:text-[var(--light-font)] hover:border-[var(--light-font)]"
         onClick={() => setShowRules(!showRules)}  
       >
         RULES

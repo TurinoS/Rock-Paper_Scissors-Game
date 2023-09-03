@@ -15,7 +15,7 @@ export default function SelectSection({ userSelect }: SelectProps) {
         <section className="bg-no-repeat bg-center flex flex-col items-center"
             style={{
                 backgroundImage: `url(${pentagon.src})`,
-                width: '40%',
+                width: '100%',
                 height: '60%',
             }}
         >
