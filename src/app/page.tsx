@@ -14,6 +14,7 @@ export default function Home() {
   const [secondtStep, setSecondStep] = useState(false)
   const [thirdStep, setThirdStep] = useState(false)
   const [wld, setWLD] = useState("draw");
+  const [points, setPoints] = useState(0);
 
   const housePicker = () => {
     setHouseChoice(Math.floor(Math.random() * 5) + 1);
@@ -55,6 +56,10 @@ export default function Home() {
       
     ) {
       setWLD("win");
+      setTimeout(() => {
+        setPoints(points + 1)
+      }, 1200)
+
     } else if (
       (userPicker === 2 && houseChoice === 1) ||
       (userPicker === 3 && houseChoice === 2) ||
@@ -68,12 +73,16 @@ export default function Home() {
       (userPicker === 5 && houseChoice === 2)
     ) {
       setWLD("lose");
+      setTimeout(() => {
+        setPoints(points - 1)
+      }, 1200)
+
     } else { setWLD("draw") }
   }, [houseChoice, userPicker])
 
   return (
     <main className="flex h-screen flex-col items-center gap-16 p-8">
-      <Header showRules={showRules} />
+      <Header showRules={showRules} points={points} />
       {userPicker === 0 ?
         <SelectSection userSelect={userSelect}/>
       :
