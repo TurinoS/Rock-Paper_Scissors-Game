@@ -163,7 +163,11 @@ export default function ResponseSection({
             </p>
           </div>
           <div className="self-center mt-16">
-            <h2 className="text-4xl mb-6 tracking-widest">YOU LOSE</h2>
+            <h2 className="text-4xl mb-6 tracking-widest">
+                {userPick === 1 && housePick === 2 || userPick === 2 && housePick === 3 || userPick === 3 && housePick === 4 || userPick === 4 && housePick === 5 || userPick === 5 && housePick === 1 || userPick === 1 && housePick === 3 || userPick === 2 && housePick === 4 || userPick === 3 && housePick === 5 || userPick === 4 && housePick === 1 || userPick === 5 && housePick === 2 ?
+                "YOU LOSE" : userPick === 2 && housePick === 1 || userPick === 3 && housePick === 2 || userPick === 4 && housePick === 3 || userPick === 5 && housePick === 4 || userPick === 1 && housePick === 5 || userPick === 3 && housePick === 1 || userPick === 4 && housePick === 2 || userPick === 5 && housePick === 3 || userPick === 1 && housePick === 4 || userPick === 2 && housePick === 5 ? 
+                "YOU WIN" : "DRAW"}
+            </h2>
             <button onClick={() => playAgain()} className="bg-[var(--light-font)] rounded-lg py-2 w-full text-[var(--bg1)] tracking-widest">PLAY AGAIN</button>
           </div>
           <div>
