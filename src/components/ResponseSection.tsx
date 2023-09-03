@@ -4,6 +4,7 @@ import rock from "../assets/icon-rock.svg";
 import lizard from "../assets/icon-lizard.svg";
 import spock from "../assets/icon-spock.svg";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 interface ResponseProps {
   userPick: number;
@@ -12,6 +13,7 @@ interface ResponseProps {
   secondStep: boolean;
   thirdStep: boolean;
   playAgain: () => void;
+  wld: string;
 }
 
 interface ChoicesMap {
@@ -41,6 +43,7 @@ export default function ResponseSection({
   secondStep,
   thirdStep,
   playAgain,
+  wld,
 }: ResponseProps) {
   const houseChoice = choicesMap[housePick];
   const userChoice = choicesMap[userPick];
@@ -164,9 +167,9 @@ export default function ResponseSection({
           </div>
           <div className="self-center mt-16">
             <h2 className="text-4xl mb-6 tracking-widest">
-                {userPick === 1 && housePick === 2 || userPick === 2 && housePick === 3 || userPick === 3 && housePick === 4 || userPick === 4 && housePick === 5 || userPick === 5 && housePick === 1 || userPick === 1 && housePick === 3 || userPick === 2 && housePick === 4 || userPick === 3 && housePick === 5 || userPick === 4 && housePick === 1 || userPick === 5 && housePick === 2 ?
-                "YOU LOSE" : userPick === 2 && housePick === 1 || userPick === 3 && housePick === 2 || userPick === 4 && housePick === 3 || userPick === 5 && housePick === 4 || userPick === 1 && housePick === 5 || userPick === 3 && housePick === 1 || userPick === 4 && housePick === 2 || userPick === 5 && housePick === 3 || userPick === 1 && housePick === 4 || userPick === 2 && housePick === 5 ? 
-                "YOU WIN" : "DRAW"}
+                {wld === "lose" ?
+                "YOU LOSE" : wld === "win" ? 
+                "YOU WIN" : wld === "draw" && "DRAW"}
             </h2>
             <button onClick={() => playAgain()} className="bg-[var(--light-font)] rounded-lg py-2 w-full text-[var(--bg1)] tracking-widest">PLAY AGAIN</button>
           </div>

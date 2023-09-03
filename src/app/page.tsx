@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 import ResponseSection from "@/components/ResponseSection";
 import RulesModal from "@/components/RulesModal";
 import SelectSection from "@/components/SelectSection";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Home() {
   const [showRules, setShowRules] = useState(false)
@@ -13,6 +13,7 @@ export default function Home() {
   const [firstStep, setFirstStep] = useState(true)
   const [secondtStep, setSecondStep] = useState(false)
   const [thirdStep, setThirdStep] = useState(false)
+  const [wld, setWLD] = useState("draw");
 
   const housePicker = () => {
     setHouseChoice(Math.floor(Math.random() * 5) + 1);
@@ -39,13 +40,44 @@ export default function Home() {
     }, 600);
   };
 
+  useEffect(() => {
+    if (
+      (userPicker === 1 && houseChoice === 2) ||
+      (userPicker === 2 && houseChoice === 3) ||
+      (userPicker === 3 && houseChoice === 4) ||
+      (userPicker === 4 && houseChoice === 5) ||
+      (userPicker === 5 && houseChoice === 1) ||
+      (userPicker === 3 && houseChoice === 1) ||
+      (userPicker === 4 && houseChoice === 2) ||
+      (userPicker === 5 && houseChoice === 3) ||
+      (userPicker === 1 && houseChoice === 4) ||
+      (userPicker === 2 && houseChoice === 5)
+      
+    ) {
+      setWLD("win");
+    } else if (
+      (userPicker === 2 && houseChoice === 1) ||
+      (userPicker === 3 && houseChoice === 2) ||
+      (userPicker === 4 && houseChoice === 3) ||
+      (userPicker === 5 && houseChoice === 4) ||
+      (userPicker === 1 && houseChoice === 5) ||
+      (userPicker === 1 && houseChoice === 3) ||
+      (userPicker === 2 && houseChoice === 4) ||
+      (userPicker === 3 && houseChoice === 5) ||
+      (userPicker === 4 && houseChoice === 1) ||
+      (userPicker === 5 && houseChoice === 2)
+    ) {
+      setWLD("lose");
+    } else { setWLD("draw") }
+  }, [houseChoice, userPicker])
+
   return (
     <main className="flex h-screen flex-col items-center gap-16 p-8">
       <Header showRules={showRules} />
       {userPicker === 0 ?
         <SelectSection userSelect={userSelect}/>
       :
-        <ResponseSection userPick={userPicker} housePick={houseChoice} firstStep={firstStep} secondStep={secondtStep} thirdStep={thirdStep} playAgain={playAgain} />
+        <ResponseSection userPick={userPicker} housePick={houseChoice} firstStep={firstStep} secondStep={secondtStep} thirdStep={thirdStep} playAgain={playAgain} wld={wld} />
       }
       
       {showRules && <RulesModal handleOnClick={() => setShowRules(false)} />}
