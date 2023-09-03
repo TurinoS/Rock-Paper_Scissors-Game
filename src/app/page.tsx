@@ -82,7 +82,7 @@ export default function Home() {
   }, [houseChoice, userPicker])
 
   return (
-    <main className="flex min-h-screen md:h-screen flex-col items-center gap-16 p-8">
+    <main className="flex min-h-screen md:h-screen flex-col items-center gap-16 py-8">
       <Header showRules={showRules} points={window.localStorage.getItem('pontos') != "null" ? window.localStorage.getItem('pontos') : "0"} />
       {userPicker === 0 ?
         <SelectSection userSelect={userSelect}/>

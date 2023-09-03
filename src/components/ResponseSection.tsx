@@ -53,7 +53,7 @@ export default function ResponseSection({
   return (
     <>
       {firstStep && (
-        <section className="flex gap-28">
+        <section>
           <div>
             <h3 className="text-xl text-center mb-16 uppercase tracking-widest">
               You picked
