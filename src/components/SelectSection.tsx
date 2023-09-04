@@ -5,18 +5,32 @@ import rock from "../assets/icon-rock.svg"
 import lizard from "../assets/icon-lizard.svg"
 import spock from "../assets/icon-spock.svg"
 import Image from "next/image"
+import { useEffect, useState } from "react"
 
 interface SelectProps {
     userSelect: (choice: number) => void
 }
 
 export default function SelectSection({ userSelect }: SelectProps) {
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        setIsMobile(window.innerWidth < 500);
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 500);
+        };
+        window.addEventListener('resize', handleResize);
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
     return(
         <section className="bg-no-repeat bg-center flex flex-col items-center"
             style={{
                 backgroundImage: `url(${pentagon.src})`,
                 width: '100%',
-                transform: window.innerWidth < 500 ? "scale(0.8)" : "none",
+                transform: isMobile ? "scale(0.8)" : "none",
             }}
         >
             <button 
