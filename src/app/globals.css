@@ -19,7 +19,9 @@
   --rock2: #b22929;
   --paper1: #0099E6;
   --paper2: #044e80;
+  --custom-shadow-color: rgba(0, 0, 0, 0.3)
 }
+
 
 body {
   color: var(--light-font);

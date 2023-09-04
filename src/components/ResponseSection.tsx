@@ -159,6 +159,7 @@ export default function ResponseSection({
               <h3 className="text-xl text-center mb-16 uppercase tracking-widest">
                 You picked
               </h3>
+              <div className="rounded-full" style={wld === "win" || wld === "draw" ? { boxShadow: `0 0 150px 0px var(--${usercolorChoice}1)` } : {}} >
               <p
                 className={`${
                   userPick === 1 || userPick === 2
@@ -178,6 +179,7 @@ export default function ResponseSection({
               >
                 <Image src={userChoice} alt={userChoice} width={70} />
               </p>
+              </div>
             </div>
             <div className="self-center mt-16 hidden md:block">
               <h2 className="text-4xl mb-6 tracking-widest">
@@ -198,6 +200,7 @@ export default function ResponseSection({
               <h3 className="text-xl text-center mb-16 uppercase tracking-widest">
                 The house picked
               </h3>
+              <div className="rounded-full" style={wld === "lose" || wld === "draw" ? { boxShadow: `0 0 150px 0px var(--${housecolorChoice}1)` } : {}} >
               <p
                 className={`${
                   housePick === 1 || housePick === 2
@@ -217,6 +220,7 @@ export default function ResponseSection({
               >
                 <Image src={houseChoice} alt={houseChoice} width={70} />
               </p>
+              </div>
             </div>
           </div>
           <div className="self-center mt-8 md:hidden">
